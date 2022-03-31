@@ -35,6 +35,7 @@ npm install --global yarn
 yarn --version
 1.22.17
 ```
+
 ---
 
 ## **🚀 Como executar**
@@ -42,7 +43,7 @@ yarn --version
 ```bash
 # Instale as dependências
 $ yarn
-# ou 
+# ou
 $ npm install
 
 # Alternativamente instale as dependências exatas do lock file
@@ -61,6 +62,71 @@ $ npm start
 
 ---
 
+## **🚀 Como contribuir**
+
+- Faça o clone desse repositório.
+
+- Verifique as issues abertas [Issues](https://github.com/rafael-angonese/vila-do-front/issues).
+
+- Escolha uma Issue.
+
+- Crie uma branch a partir da branch `develop`
+
+```bash
+# Criar branch
+$ git checkout -b nome-da-sua-branch
+
+# Faça o push da sua branch para o git e sete a origin
+$ git push --set-upstream origin nome-da-sua-branch
+```
+
+- Faça as alterações no código.
+- Faça commits.
+
+```bash
+# de stage nos arquivos/alterações
+$ git add .
+
+# faça seus commits
+$ git commit -m 'sua mensagem'
+
+# ou com gitmoji
+$ gitmoji -c
+```
+
+- Suba as alterações para o git.
+
+```bash
+# subir as alterações para o git
+$ git push
+```
+
+- Faça uma PR (Pull Request) da sua branch `nome-da-sua-brach` para a branch `develop`.
+
+- [Pull Requests](https://github.com/rafael-angonese/vila-do-front/pulls).
+
+---
+
+## **😜😍 Gitmoji**
+
+- [Gitmoji.dev](https://gitmoji.dev/)
+- [Gitmoji Github](https://github.com/carloscuesta/gitmoji)
+
+```bash
+# para instalar com o npm
+$ npm i -g gitmoji-cli
+
+# verificar a instalação
+$ gitmoji -v
+
+# para utilizar
+$ gitmoji
+
+# para fazer commits
+$ gitmoji -c
+```
+
+---
 ## ⚖️ **Licença**
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
