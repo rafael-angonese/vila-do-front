@@ -1,4 +1,5 @@
 import React from "react";
+import Label from "./Label";
 
 class ConctactForm extends React.Component {
   render() {
@@ -21,11 +22,11 @@ class ConctactForm extends React.Component {
         <div style={{ display: "flex-column" }}>
           <h1 style={{ textAlign: "center" }}>Olá, mundo!</h1>
           <form style={{ width: "400px", margin: "0 auto" }}>
-            <label>Nome</label>
+            <Label>Nome</Label>
             <input style={inputStyle} />
-            <label>Email</label>
+            <Label>Email</Label>
             <input style={inputStyle} />
-            <label>Telefone</label>
+            <Label>Telefone</Label>
             <input style={inputStyle} />
             <button style={buttonStyle}>Enviar</button>
           </form>
