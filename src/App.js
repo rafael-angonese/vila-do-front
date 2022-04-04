@@ -4,6 +4,8 @@ import ConctactForm from "./components/ContactForm";
 import Header from "./components/Header/Header";
 import Label from "./components/Label";
 
+import about from './assets/about-pic.jpg'
+
 function App() {
   return (
     <>
@@ -16,6 +18,9 @@ function App() {
       </Button>
 
       <Button color="blue">Historico</Button>
+
+      <img alt="images" src={require('./assets/about-pic.jpg')} />
+      <img  src={about} />
 
       <br />
       <Label>Nome</Label>
