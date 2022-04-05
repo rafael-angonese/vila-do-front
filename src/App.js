@@ -1,6 +1,6 @@
 import Button from "./components/Button";
 import Clients from "./components/Clients";
-import ConctactForm from "./components/ContactForm";
+import Conctact from "./components/Contact";
 import Header from "./components/Header/Header";
 import Label from "./components/Label";
 
@@ -12,7 +12,7 @@ import WaveSvg from "./components/WaveSvg";
 import { useState } from "react";
 
 function App() {
-  const [exibir, setExibir] = useState(false);
+  const [exibir, setExibir] = useState(true);
   const [name, setName] = useState('Resilia');
 
   const onChangeExibir = (event) => {
@@ -29,7 +29,7 @@ function App() {
 
       {name}
 
-      {exibir && <ConctactForm />}
+      {exibir && <Conctact />}
 
       {/* <Button>Comprar</Button>
 
