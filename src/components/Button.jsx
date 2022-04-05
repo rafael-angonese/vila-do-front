@@ -1,7 +1,9 @@
 const Button = (props) => {
+
+  console.log(props)
   return (
-    <button style={{ fontSize: "30px", padding: "30px", color: props.color }}>
-      {props.children}
+    <button style={{ fontSize: props.size, padding: "30px", color: props.color }}>
+      {props.children} {props.size}
     </button>
   );
 };

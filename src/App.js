@@ -9,25 +9,41 @@ import about from "./assets/about-pic.jpg";
 import { ReactComponent as Wave } from "./assets/imagens/wave.svg";
 import { ReactComponent as Truque } from "./assets/imagens/truque.svg";
 import WaveSvg from "./components/WaveSvg";
+import { useState } from "react";
 
 function App() {
+  const [exibir, setExibir] = useState(false);
+  const [name, setName] = useState('Resilia');
+
+  const onChangeExibir = (event) => {
+      setExibir(!exibir);
+
+      setName('asdfsafsdojif sdajfdoskaf')
+  };
+
   return (
     <>
       <Header />
-      <h1>Vila do Front</h1>
-      <Button>Comprar</Button>
+
+      <button onClick={onChangeExibir}>Exibir</button>
+
+      {name}
+
+      {exibir && <ConctactForm />}
+
+      {/* <Button>Comprar</Button>
 
       <Button color="red" size="20px">
         Vender
       </Button>
 
-      <Button color="blue">Historico</Button>
+      <Button color="blue">Historico</Button> */}
 
-      <div style={{ width: "100px" }}>
+      {/* <div style={{ width: "100px" }}>
         <Truque />
-      </div>
+      </div> */}
 
-      <div style={{ width: "300px" }}>
+      {/* <div style={{ width: "300px" }}>
         <Wave />
       </div>
 
@@ -45,9 +61,7 @@ function App() {
       <Label>Nome</Label>
       <Label>Resilia</Label>
 
-      <Clients />
-
-      <ConctactForm />
+      <Clients /> */}
     </>
   );
 }
