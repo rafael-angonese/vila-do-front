@@ -1,0 +1,20 @@
+.button {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+
+  padding: 14px;
+  border-radius: 25px;
+
+  font-weight: bold;
+  font-size: 16px;
+  justify-content: center;
+  margin: 5px;
+
+  cursor: pointer;
+  outline: 0;
+}
+
+.button:hover {
+  background: var(--purple);
+}
