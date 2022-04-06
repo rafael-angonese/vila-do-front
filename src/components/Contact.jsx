@@ -1,50 +1,45 @@
 import React, { useState } from "react";
+import Button from "./Button/Button";
 import Input from "./Input/Input";
-import Label from "./Label";
-
-// import { Container } from './styles';
 
 const Contact = () => {
-  const inputStyle = {
-    width: "100%",
-    padding: "12px 20px",
-    marginBottom: "20px",
-  };
-  const buttonStyle = {
-    width: "80px",
-    padding: "5px 20px",
-    textAlign: "center",
-    fontWeight: "bold",
-    backgroundColor: "#ddd255",
-    border: "1px solid #cccccc",
-  };
-
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
   const submitForm = () => {
-    alert(name)
-    //
-  }
+    console.log("-------------------");
+  };
 
   return (
     <>
+
       <div style={{ display: "flex-column" }}>
         <h1 style={{ textAlign: "center" }}>Olá, mundo!</h1>
-        <form onSubmit={submitForm} style={{ width: "400px", margin: "0 auto" }}>
-          <Label>Nome</Label>
+        <form
+          onSubmit={submitForm}
+          style={{ width: "400px", margin: "0 auto" }}
+        >
           <Input
             value={name}
-            onChange={(event) => {
-              setName(event.target.value);
-            }}
-            
+            label="Nome"
+            onChange={(event) => setName(event.target.value)}
           />
-          {name}
-          <Label>Email</Label>
-          <input style={inputStyle} />
-          <Label>Telefone</Label>
-          <input style={inputStyle} />
-          <button style={buttonStyle}>Enviar</button>
+
+          <Input
+            value={email}
+            label="Email"
+            type="email"
+            onChange={(event) => setEmail(event.target.value)}
+          />
+
+          <Input
+            value={phone}
+            label="Telefone"
+            onChange={(event) => setPhone(event.target.value)}
+          />
+
+          <Button>Enviar</Button>
         </form>
       </div>
     </>
