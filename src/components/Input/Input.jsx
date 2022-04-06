@@ -1,15 +1,20 @@
 import React from "react";
+import Label from "../Label";
 
-// import { Container } from './styles';
+import styles from "./styles.module.css";
 
-function Input({ value, onChange }) {
-  const inputStyle = {
-    width: "100%",
-    padding: "12px 20px",
-    marginBottom: "20px",
-  };
-
-  return <input value={value} onChange={onChange} style={inputStyle} />;
+function Input({ value, label, onChange, type }) {
+  return (
+    <>
+      <Label>{label}</Label>
+      <input
+        type={type}
+        value={value}
+        onChange={onChange}
+        className={styles.input}
+      />
+    </>
+  );
 }
 
 export default Input;
