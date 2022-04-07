@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import styles from './styles.module.css'
 
@@ -10,15 +11,15 @@ const Header = () => {
         <a className={styles.link} href="#">
           Home
         </a>
-        <a className={styles.link} href="#">
-          Resilia
-        </a>
-        <a className={styles.link} href="#">
+        <Link className={styles.link} to="/clients">
+          Clientes
+        </Link>
+        <a className={styles.link} href="/teste">
           Vila do Front
         </a>
-        <a className={styles.link} href="#">
+        <Link className={styles.link} to="/contact">
           Contato
-        </a>
+        </Link>
         <a  className={styles.link} href="#">
           Lala
         </a>
