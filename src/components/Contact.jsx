@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import Button from "./Button/Button";
 import Input from "./Input/Input";
 
@@ -7,13 +9,43 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
-  const submitForm = () => {
-    console.log("-------------------");
+  const submitForm = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "https://vila-api.herokuapp.com/contacts",
+        {
+          name: name,
+          email: email,
+          phone: phone,
+        }
+      );
+
+      toast.success('Formulário envaido com sucesso!')
+
+    } catch (error) {
+     toast.error('Nao foi possível comunicar com o servidor')
+    }
+
+    // axios
+    //   .post("https://vila-api.herokuapp.com/contacts", {
+    //     name: name,
+    //     email: email,
+    //     phone: phone,
+    //   })
+    //   .then((response) => {
+    //     console.log(response);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error.response);
+    //   });
+
+      
   };
 
   return (
     <>
-
       <div style={{ display: "flex-column" }}>
         <h1 style={{ textAlign: "center" }}>Olá, mundo!</h1>
         <form
