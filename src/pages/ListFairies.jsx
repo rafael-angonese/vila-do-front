@@ -8,6 +8,19 @@ const ListFairies = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
+  const onDeleteFairy = async (id) => {
+    try {
+      const response = await api.delete(`/fairies/${id}`);
+
+      const newData = data.filter((fairy) => fairy.id !== id);
+      setData(newData);
+
+      toast.success("Fada deletada com sucesso!");
+    } catch (error) {
+      toast.error("Nao foi possível remover essa fada");
+    }
+  };
+
   useEffect(() => {
     api
       .get("/fairies")
@@ -17,9 +30,8 @@ const ListFairies = () => {
       })
       .catch((error) => {
         setLoading(false);
-        toast.error("Nao foi possivel comunicar com o servidor");
+        toast.error("Nao foi possível comunicar com o servidor");
       });
-      
   }, []);
 
   return (
@@ -27,14 +39,9 @@ const ListFairies = () => {
       <br />
       <LinearProgress loading={loading} />
 
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
         {data.map((fairy) => (
-          <FairyCard
-            key={fairy.id}
-            name={fairy.name}
-            element={fairy.element}
-            healthPoint={fairy.health_point}
-          />
+          <FairyCard key={fairy.id} fairy={fairy} onDelete={onDeleteFairy} />
         ))}
       </div>
     </>

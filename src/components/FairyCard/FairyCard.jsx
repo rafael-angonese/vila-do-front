@@ -2,22 +2,23 @@ import Button from "../Button/Button";
 import styles from "./styles.module.css";
 
 
-const FairyCard = ({ name, element, healthPoint }) => {
+const FairyCard = ({ fairy, onDelete }) => {
+
   return (
     <div className={styles.card}>
       <h1>
-        Name: <span>{name}</span>
+        Name: <span>{fairy.name}</span>
       </h1>
 
       <p>
-        Elemento: <span>{element}</span>
+        Elemento: <span>{fairy.element}</span>
       </p>
       <p>
-        Vida: <span>{healthPoint}</span>
+        Vida: <span>{fairy.health_point}</span>
       </p>
 
       <Button>Visualizar</Button>
-      <Button>Excluir</Button>
+      <Button onClick={(event) => onDelete(fairy.id)}>Excluir</Button>
       <Button>Editar</Button>
     </div>
   );
