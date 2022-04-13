@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Button from "../components/Button/Button";
 import FairyCard from "../components/FairyCard/FairyCard";
 import LinearProgress from "../components/LinearProgress/LinearProgress";
 import api from "../services/api";
@@ -7,6 +9,12 @@ import api from "../services/api";
 const ListFairies = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  // console.log(location)
+  // console.log(window.location)
+
 
   const onDeleteFairy = async (id) => {
     try {
@@ -38,6 +46,8 @@ const ListFairies = () => {
     <>
       <br />
       <LinearProgress loading={loading} />
+
+      <Button onClick={() => navigate('/fairies/new')}>Nova Fada</Button>
 
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {data.map((fairy) => (
