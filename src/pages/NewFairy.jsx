@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Button from "../components/Button/Button";
 import Input from "../components/Input/Input";
@@ -8,6 +9,7 @@ function NewFairy() {
   const [name, setName] = useState("");
   const [element, setElement] = useState("");
   const [healthPoint, setHealthPoint] = useState("");
+  const navigate = useNavigate()
 
   const submitForm = async (event) => {
     event.preventDefault();
@@ -22,11 +24,8 @@ function NewFairy() {
         }
       );
 
-      setName("")
-      setElement("")
-      setHealthPoint("")
-
       toast.success("Formulário envaido com sucesso!");
+      navigate('/fairies')
     } catch (error) {
       toast.error("Nao foi possível comunicar com o servidor");
     }
