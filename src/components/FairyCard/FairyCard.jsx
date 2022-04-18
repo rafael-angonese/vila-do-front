@@ -21,7 +21,7 @@ const FairyCard = ({ fairy, onDelete }) => {
 
       <Button onClick={() => navigate(`/fairies/${fairy.id}`)}>Visualizar</Button>
       <Button onClick={(event) => onDelete(fairy.id)}>Excluir</Button>
-      <Button>Editar</Button>
+      <Button  onClick={() => navigate(`/fairies/edit/${fairy.id}`)}>Editar</Button>
     </div>
   );
 }
