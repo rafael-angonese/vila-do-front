@@ -3,11 +3,10 @@ import {
   Container,
   FormControl,
   FormErrorMessage,
-  FormHelperText,
   FormLabel,
   Input,
 } from "@chakra-ui/react";
-import React, { createRef, useRef, useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -31,8 +30,7 @@ function TestForm() {
   console.log("renderizou a tela");
 
   const onSubmit = (data) => {
-
-    console.log(data)
+    console.log(data);
 
     console.log("on submit");
   };
