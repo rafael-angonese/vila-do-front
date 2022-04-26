@@ -5,16 +5,19 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import Header from "./components/Header/Header";
 import Rotas from "./routes";
+import { UserContextProvider } from "./contexts/userContext";
 
 function App() {
   return (
     <>
       <ChakraProvider>
-        <BrowserRouter>
-          <Header />
+        <UserContextProvider>
+          <BrowserRouter>
+            <Header />
 
-          <Rotas />
-        </BrowserRouter>
+            <Rotas />
+          </BrowserRouter>
+        </UserContextProvider>
       </ChakraProvider>
       <ToastContainer />
     </>
