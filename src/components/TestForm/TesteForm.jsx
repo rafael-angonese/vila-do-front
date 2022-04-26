@@ -6,10 +6,11 @@ import {
   FormLabel,
   Input,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import UserContext from "../../contexts/userContext";
 
 const schema = yup
   .object({
@@ -27,12 +28,12 @@ function TestForm() {
     resolver: yupResolver(schema),
   });
 
-  console.log("renderizou a tela");
+  const { name, setName } = useContext(UserContext);
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
 
-    console.log("on submit");
+    setName(data.name)
   };
 
   return (
@@ -52,6 +53,7 @@ function TestForm() {
           </FormControl>
 
           <Button type="submit">Enviar</Button>
+          {name}
         </form>
       </Container>
     </>

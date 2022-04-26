@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../../contexts/userContext";
 
 import styles from "./styles.module.css";
 
 const Header = () => {
+
+  const { name } = useContext(UserContext)
+
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -20,7 +24,7 @@ const Header = () => {
           Contato
         </Link>
         <a className={styles.link} href="#">
-          Lala
+          {name}
         </a>
       </nav>
     </header>
