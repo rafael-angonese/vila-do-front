@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import UserContext from "../../contexts/userContext";
+import { toast } from "react-toastify";
 
 const schema = yup
   .object({
@@ -23,17 +24,21 @@ function TestForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
+    mode: 'onChange'
   });
 
-  const { name, setName } = useContext(UserContext);
+  const { name, onSaveName, remove } = useContext(UserContext);
 
   const onSubmit = (data) => {
     // console.log(data);
 
-    setName(data.name)
+    onSaveName(data.name)
+    reset()
+    toast.success('Nome salvo com sucesso!')
   };
 
   return (
@@ -53,6 +58,8 @@ function TestForm() {
           </FormControl>
 
           <Button type="submit">Enviar</Button>
+
+          <Button onClick={remove} m={4}>Remover Nome</Button>
           {name}
         </form>
       </Container>
