@@ -6,6 +6,7 @@ import Conctact from "../components/Contact";
 import TestForm from "../components/TestForm/TesteForm";
 import EditFairy from "../pages/EditFairy";
 import ListFairies from "../pages/ListFairies";
+import ListSpells from "../pages/ListSpells";
 import NewFairy from "../pages/NewFairy";
 import ShowFairy from "../pages/ShowFairy";
 
@@ -21,6 +22,7 @@ const Rotas = () => {
         <Route path="/fairies/edit/:id" element={<EditFairy />} />
         <Route path="/fairies/new" element={<NewFairy />} />
         <Route path="/teste" element={<TestForm />} />
+        <Route path="/spells" element={<ListSpells />} />
       </Routes>
     </>
   );
