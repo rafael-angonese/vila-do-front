@@ -1,3 +1,4 @@
+import { Input } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -11,6 +12,7 @@ const ListFairies = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate()
   const location = useLocation()
+  const [filter, setFilter] = useState('')
 
   // console.log(location)
   // console.log(window.location)
@@ -31,7 +33,7 @@ const ListFairies = () => {
 
   useEffect(() => {
     api
-      .get("/fairies")
+      .get(`/fairies?query=${filter}`)
       .then((response) => {
         setData(response.data);
         setLoading(false);
@@ -40,7 +42,12 @@ const ListFairies = () => {
         setLoading(false);
         toast.error("Nao foi possível comunicar com o servidor");
       });
-  }, []);
+  }, [filter]);
+
+
+  useEffect(() => {
+    console.log('executou o useeffect')
+  }, [filter])
 
   return (
     <>
@@ -48,6 +55,8 @@ const ListFairies = () => {
       <LinearProgress loading={loading} />
 
       <Button onClick={() => navigate('/fairies/new')}>Nova Fada</Button>
+
+      <Input value={filter} onChange={(event) => setFilter(event.target.value)} placeholder="Digite o nome da Fada" />
 
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {data.map((fairy) => (
