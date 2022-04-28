@@ -1,17 +1,43 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react";
 
-const UserContext = createContext()
+const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
-    const [name, setName] = useState('Nao tem nome por enquanto')
+  const [name, setName] = useState("");
 
-    return(
-        <UserContext.Provider value={{ name, setName }}>
-            {children}
-        </UserContext.Provider>
-    )
+  useEffect(() => {
+    const storagedName = localStorage.getItem("name");
+    // const storagedName =  JSON.parse(localStorage.getItem('name'))
 
-}
+    // console.log(storagedName);
 
-export { UserContextProvider }
-export default UserContext
+    // setName(storagedName.name)
+    setName(storagedName);
+  }, []);
+
+  const onSaveName = (name) => {
+    setName(name);
+
+    // const user ={
+    //     name: name,
+    //     id: 234
+    // }
+    // localStorage.setItem('name', JSON.stringify(user));
+
+    localStorage.setItem("name", name);
+  };
+
+  const remove = () => {
+    localStorage.removeItem("name");
+    setName("");
+  };
+
+  return (
+    <UserContext.Provider value={{ name, onSaveName, remove }}>
+      {children}
+    </UserContext.Provider>
+  );
+};
+
+export { UserContextProvider };
+export default UserContext;
